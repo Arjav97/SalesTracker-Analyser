@@ -1,0 +1,39 @@
+<div class="uk-child-width-1-1" uk-grid id="main">
+  <div *ngFor="let enquiry of enquiries">
+    
+  <div class="uk-card uk-card-default">
+      <div class="uk-card-header">
+          <div uk-grid>
+              
+              <div class="uk-width-auto">
+                  <h3 class="uk-card-title">{{enquiry?.salesrep}}</h3>
+              </div>
+              
+              <div class="uk-width-expand">
+                <button id="accept" class="uk-button uk-button-primary" (click)="acceptEnquiry(enquiry)">Accept</button>    
+              </div>
+
+              <div class="uk-width-expand">
+                <button id="reject" class="uk-button uk-button-primary" (click)="rejectEnquiry(enquiry)">Reject</button>    
+              </div>
+
+          
+            </div>
+      </div>
+      
+      <div class="uk-card-body uk-padding-remove">
+        <div uk-grid>
+          
+            <div class="uk-width-auto" id="carddesc">
+                <p class="uk-text-emphasis uk-text-medium">{{enquiry?.desc}}</p>
+            </div>
+            <div class="uk-width-expand"> 
+                <p id="date" class="uk-text-emphasis uk-text-medium">{{enquiry?.datestring}}</p>
+            </div>
+        </div>
+        
+        </div>
+  </div>
+
+</div>
+</div>

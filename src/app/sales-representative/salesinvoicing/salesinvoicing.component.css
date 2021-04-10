@@ -1,0 +1,62 @@
+#navbar
+{
+    background-color: #f0f0d0;
+    height:50px;
+}
+#navitem
+{
+    margin-top: -15px;
+}
+#main
+{
+    margin-top:20px;
+    margin-left:30px;
+}
+#label
+{
+    margin-left:520px;
+    margin-bottom:50px;
+}
+#iconbutton
+{
+    margin-top:50px;
+    margin-left:560px;
+    margin-bottom:30px;
+}
+.uk-select,input
+{
+    border-style:solid;
+    border-width:thin;
+    border-color:red;
+}
+#price,#qty,#total
+{
+    margin-top:5px;
+    padding:7px;
+}
+#nettotaltext
+{
+    margin-left:97px;
+    padding:7px;
+}
+#customertext
+{
+    padding:7px;
+}
+#nettotal,#submit
+{
+    margin-left:605px;
+    width:185px;
+}
+#customer
+{
+    margin-right:50px;
+}
+#submain
+{
+    margin-top:40px;
+}
+#navigate
+{
+    background-color: red;
+}

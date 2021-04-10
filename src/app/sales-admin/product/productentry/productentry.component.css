@@ -1,0 +1,11 @@
+#main
+{
+    margin-left: 295px;
+}
+#name,#spec,#qty,#price,#comm,#category
+{   
+    border-style:solid;
+    border-width:thin;
+    border-color:#f44242;
+    margin-top:10px;
+}

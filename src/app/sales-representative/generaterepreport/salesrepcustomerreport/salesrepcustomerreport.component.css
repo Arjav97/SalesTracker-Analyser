@@ -1,0 +1,13 @@
+#date
+{
+    height: 35px;
+    border-style:solid;
+    border-width:thin;
+    border-color:red;
+}
+#export
+{
+    height:40px;
+    background-color:red;
+    margin-left:150px;
+}

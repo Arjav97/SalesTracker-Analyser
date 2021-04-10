@@ -1,0 +1,111 @@
+<nav class="uk-navbar-container" id="navbar" uk-navbar>
+  <div class="uk-navbar-left" id="navitem">
+      <a class="uk-navbar-toggle" href="#canvas" uk-toggle>
+          <span style="color:black" uk-navbar-toggle-icon></span> <span style="color:black" class="uk-margin-small-left">Menu</span>
+      </a>
+  </div>
+  <div class="uk-navbar-right uk-margin-medium-right uk-margin-small-top uk-margin-medium-bottom" id="navitem">
+    <button id="logout" class="uk-button uk-button-primary uk-button-small" (click)="logout()">Log Out</button>
+</div>
+</nav>
+
+<div id="canvas" *ngIf="salesadmin" uk-offcanvas="mode:push"> 
+  <div class="uk-offcanvas-bar">
+    <ul class="uk-nav uk-nav-default uk-nav-center-left uk-margin-auto-vertical">
+     <li class="uk-nav-header"><a routerLink="/salesdashboard">Sales Dashboard</a></li>
+     <li class="uk-nav-divider"></li> 
+     <li class="uk-nav-header"><a routerLink="/producthome">Product Related Operations</a></li>
+     
+      <li class="uk-nav-divider"></li>
+      
+      <li class="uk-nav-header"><a routerLink="/productcatalogue">Product Catalogue</a></li>
+      <li class="uk-nav-divider"></li>
+      <li class="uk-nav-header"><a routerLink="/productenquiryadminhome">Product Enquiry</a></li>
+      <li class="uk-nav-divider"></li>
+      <li class="uk-nav-header"><a routerLink="/viewallsalesorder">View All Sales Order</a></li>
+      <li class="uk-nav-divider"></li>
+      <li class="uk-nav-header"><a routerLink="/generateadminreport">Generate Report</a></li>
+    </ul>
+    
+      <button class="uk-offcanvas-close" type="button" uk-close></button>
+  </div>
+</div>
+
+<div id="canvas" *ngIf="salesrep" uk-offcanvas="mode:push">
+  <div class="uk-offcanvas-bar">
+    <ul class="uk-nav uk-nav-default uk-nav-center-left uk-margin-auto-vertical">
+     <li class="uk-nav-header"><a routerLink="/salesrepdashboard">Sales Representative Dashboard</a></li>
+     <li class="uk-nav-divider"></li> 
+      <li class="uk-nav-header"><a routerLink="/productcatalogue">Product Catalogue</a></li>
+      <li class="uk-nav-divider"></li> 
+      <li class="uk-nav-header"><a routerLink="/customerhome">Customer Info</a></li>
+      <li class="uk-nav-divider"></li>
+      <li class="uk-nav-header"><a routerLink="/productenquiryrephome">Product Enquiry</a></li>
+      <li class="uk-nav-divider"></li> 
+      <li class="uk-nav-header"><a routerLink="/salesinvoicing">Sales Invoicing</a></li>
+      <li class="uk-nav-divider"></li>
+      <li class="uk-nav-header"><a routerLink="/generaterepreport">Generate Report</a></li>
+      
+    </ul>
+    
+      <button class="uk-offcanvas-close" type="button" uk-close></button>
+  </div>
+</div>
+
+<div class="uk-margin">
+  
+  <div id="filter">
+      <button class="uk-button uk-button-primary uk-button-small uk-text-medium" id="showAll" uk-tooltip="View All Products" (click)="getProducts()">Show All</button>
+      
+      <button class="uk-button uk-button-primary uk-button-small uk-text-medium" id="category" uk-tooltip="Filter" (click)="getCategories()"><span class="uk-icon" uk-icon="settings"></span> Filter By Category</button>
+        
+        <div uk-dropdown="mode:hover;delay-hide:0">
+            <ul class="uk-nav uk-dropdown-nav">
+                <li *ngFor="let category of categories" (click)="searchCategory(category)"><a>{{category}}</a></li> 
+            </ul>
+        </div>
+    
+    <form class="uk-search uk-search-default uk-width-1-5" id="search">
+        <input class="uk-search-input" #pro type="search" uk-tooltip="Search by Product Name or Id" placeholder="Search ...">
+    </form>
+    
+    <button class="uk-button uk-button-primary uk-button-small"  (click)="searchProduct(pro.value);pro.value='' "><span uk-search-icon></span></button>
+  
+  </div>
+
+</div>
+
+<div class="uk-child-auto-width uk-grid-large uk-grid-match" uk-grid id="main">
+  <div *ngFor="let product of products">
+      
+  <div class="uk-card uk-card-default uk-card-body uk-card-small uk-card-hover uk-box-shadow-large" >
+    
+    <div uk-grid>
+      
+      <div class="uk-width-1-2"> 
+        <div> 
+          <a routerLink="/productdetail/{{product._id}}"><h3 class="uk-card-title">{{product.name}}</h3></a> 
+        </div> 
+      </div>
+      
+      <div class="uk-width-expand" *ngIf="salesadmin"> 
+       <div class="uk-inline" id="moreicon">
+        <a class="uk-icon-button uk-margin-small-right" uk-icon="icon:more-vertical;ratio:2"></a> 
+        <div uk-dropdown="pos:top-justify;delay-hide:0">
+         <ul class="uk-nav uk-dropdown-nav">
+          <li class="uk-nav-header"><a [routerLink]="['/producthome/productquantity',{id:product._id}]"><span class="uk-text-medium uk-text-emphasis">Add Quantity</span></a></li>
+          <li class="uk-nav-divider"></li>
+          <li class="uk-nav-header"><a [routerLink]="['/producthome/updatepricecommission',{id:product._id}]"><span class="uk-text-medium uk-text-emphasis">Update Price/Commission</span></a></li>
+         </ul>
+        </div>
+       </div>
+      </div>
+    
+    </div>
+        
+      <p><span class="uk-badge" style="background-color:gray">{{product._id}}</span></p>
+  </div>
+    
+  </div>
+</div>
+

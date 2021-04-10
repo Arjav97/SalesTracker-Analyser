@@ -1,0 +1,12 @@
+#main
+{
+    margin-top:50px;
+    margin-left: 385px;
+}
+#id,#price,#comm
+{   
+    border-style:solid;
+    border-width:thin;
+    border-color:#f44242;
+    margin-top:10px;
+}

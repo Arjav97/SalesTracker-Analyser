@@ -1,0 +1,57 @@
+#navbar
+{
+    background-color: #f0f0d0;
+    height:50px;
+}
+#navitem
+{
+    margin-top: -15px;
+}
+#main
+{
+    margin-top:100px;
+    margin-left:100px;
+    margin-right:110px;
+}
+.uk-card
+{   
+    background-color:white;
+    border-style:solid;
+    border-width:thin;
+    margin-bottom: 15px;
+}
+#filter
+{
+    margin-top:50px;
+}
+.uk-search
+{
+    margin-left:315px;
+    border-style:solid;
+    border-width:thin;
+    border-color:red;
+}
+.uk-button
+{
+    height:42px;
+    background-color:red;
+}
+#showAll
+{
+    margin-left:175px;
+    background-color:red;
+    width: 120px;
+}
+#category
+{
+    margin-left:150px;
+}
+#logout
+{
+    background-color: #0066FF;
+    height:30px;
+}
+#moreicon
+{
+    float:right;
+}

@@ -1,0 +1,39 @@
+.uk-button
+{
+    height:40px;
+    background-color:red;
+}
+#top
+{
+    margin-top:150px;
+}
+#subtop
+{
+    margin-top:15px;
+}
+#headinglabel
+{
+    margin-left: 110px;
+}
+#date
+{
+    height: 30px;
+    border-style:solid;
+    border-width:thin;
+    border-color:red;
+}
+.uk-accordion-title
+{
+    background-color:whitesmoke;
+    padding:5px;
+}
+#mainaccordion
+{
+    margin-left:50px;
+    margin-top:50px;
+    margin-right:100px;
+}
+#total
+{
+    float:right;
+}

@@ -1,0 +1,43 @@
+<nav class="uk-navbar-container" id="navbar" uk-navbar>
+  <div class="uk-navbar-left" id="navitem">
+      <a class="uk-navbar-toggle" href="#canvas" uk-toggle>
+          <span style="color:black" uk-navbar-toggle-icon></span> <span style="color:black" class="uk-margin-small-left">Menu</span>
+      </a>
+  </div>
+  <div class="uk-navbar-right uk-margin-medium-right uk-margin-small-top uk-margin-small-bottom" id="navitem">
+      <button class="uk-button uk-button-primary uk-button-small" (click)="logout()">Log Out</button>
+  </div>
+</nav>
+
+<div id="canvas" uk-offcanvas="mode:push">
+  <div class="uk-offcanvas-bar">
+    <ul class="uk-nav uk-nav-default uk-nav-center-left uk-margin-auto-vertical">
+     <li class="uk-nav-header"><a routerLink="/salesdashboard">Sales Dashboard</a></li>
+     <li class="uk-nav-divider"></li> 
+     <li class="uk-nav-header"><a routerLink="/producthome">Product Related Operations</a></li>
+      <li class="uk-nav-divider"></li>
+      <li class="uk-nav-header"><a routerLink="/productcatalogue">Product Catalogue</a></li>
+      <li class="uk-nav-divider"></li>
+      <li class="uk-nav-header"><a routerLink="/productenquiryadminhome">Product Enquiry</a></li>
+      <li class="uk-nav-divider"></li>
+      <li class="uk-nav-header"><a routerLink="/viewallsalesorder">View All Sales Order</a></li>
+      <li class="uk-nav-divider"></li>
+      <li class="uk-nav-header"><a routerLink="/generateadminreport">Generate Report</a></li>
+    </ul>
+    
+      <button class="uk-offcanvas-close" type="button" uk-close></button>
+  </div>
+</div>
+
+<div class="uk-margin-large-left uk-grid-divider" uk-grid>
+  <div class="uk-width-1-5  uk-margin-large-top" style="background-color:#F5F5F5">
+    <ul class="uk-tab-left uk-text-center" uk-tab>
+      <li class="uk-margin-medium-bottom"><a routerLink="./viewallenquiry">View Pending Enquiries</a></li>
+      <li class="uk-margin-medium-bottom"><a routerLink="./viewacceptedenquiry">View Accepted Enquiries</a></li>
+    </ul>
+  </div>
+
+  <div class="uk-width-expand">
+      <router-outlet></router-outlet>
+  </div>
+</div>

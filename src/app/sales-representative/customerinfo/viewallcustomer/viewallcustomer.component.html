@@ -1,0 +1,84 @@
+
+  <div class="uk-margin-small-top uk-margin-small-left" id="top">
+      <label class="uk-text-emphasis uk-text-large uk-margin-large-right uk-width-1-3">View Customer FollowUps</label>
+
+ 
+      <form class="uk-search uk-search-default uk-width-1-3" id="search">
+        <input class="uk-search-input" #cust type="search" placeholder="Search Customer FollowUp..." uk-tooltip="Enter Customer Id">
+      </form> 
+
+      <button class="uk-button uk-button-primary uk-button-small" uk-tooltip="title:Search" (click)="searchCustomerFollowUp(cust.value)"><span uk-search-icon></span></button>
+      
+      <button class="uk-button uk-button-primary uk-button-medium uk-margin-medium-left" (click)="showallFollowUps(cust.value)" uk-tooltip="title:Show All FollowUps;pos:bottom">Show All</button>
+    
+      <button class="uk-button uk-button-primary uk-button-medium" uk-tooltip="title:Add FollowUp;pos:bottom" uk-toggle="target:#newfollowup"><span uk-icon="icon:plus"></span>&nbsp;&nbsp;Add New FollowUp</button>
+    </div>
+  
+  <div class="uk-child-width-1-1" uk-grid id="main">
+    <div *ngIf="followups?.length>0">
+      <div *ngFor="let followup of followups | paginate: { id:'followupsunchecked',itemsPerPage:4,currentPage:p} ">
+        
+      <div class="uk-card uk-card-default">
+          <div class="uk-card-header">
+              <div uk-grid>
+                  
+                  <div class="uk-width-auto">
+                      <h3 class="uk-card-title">{{followup?.email}}</h3>
+                  </div>
+                  
+                  <div class="uk-width-expand">
+                    <button *ngIf=" flag=='search' " id="status" uk-tooltip="Check it" class="uk-button uk-button-primary" (click)="removeFollowUp(followup)">{{followup?.status}}</button>    
+                    <label *ngIf=" flag=='showall' " class="uk-label" id="statuslabel">{{followup?.status}}</label>
+                  </div>
+              
+                </div>
+          </div>
+          
+          <div class="uk-card-body uk-padding-remove-top uk-padding-remove-bottom">
+            <div uk-grid id="cardbody">
+              
+                <div class="uk-width-auto">
+                    <p class="uk-text-emphasis uk-text-medium">{{followup?.desc}}</p>
+                </div>
+              
+                <div class="uk-width-expand">
+                  <p id="date" class="uk-text-emphasis uk-text-medium">{{followup?.datestring}}</p>
+                </div>
+            </div>
+            
+          </div>
+      </div>
+    
+    </div>
+    <pagination-controls id="followupsunchecked" (pageChange)="p = $event" autoHide="true"></pagination-controls>
+  </div>
+</div>
+  
+    <div id="notregisteredcustomer" uk-modal>
+      <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+          <button class="uk-modal-close-default" type="button" uk-close></button>
+          <h2 class="uk-modal-title uk-text-center">Not a registered customer</h2>
+          <p>
+            <a *ngIf="flag=='search' || flag=='showall' " [routerLink]="['/customerhome/addcustomer',{email:cust.value}]"><button class="uk-button uk-width-expand uk-button-primary">Navigate to Customer Registration</button></a>
+            <a *ngIf="flag=='newfollowup' " [routerLink]="['/customerhome/addcustomer',{email:email.value}]"><button class="uk-button uk-width-expand uk-button-primary">Navigate to Customer Registration</button></a>
+          </p>
+      </div>
+    </div>
+
+    <div id="newfollowup" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+          <button class="uk-modal-close-default" type="button" uk-close></button>
+          <h2 class="uk-modal-title uk-text-center">Add FollowUp</h2>
+          <p>
+              <input class="uk-text-large uk-text-emphasis uk-width-expand" uk-tooltip="title:Customer Id;pos:top-left" type="text" #email placeholder="Enter customer email....">    
+          </p>
+          <p>
+              <input class="uk-text-large uk-text-emphasis uk-width-expand" uk-tooltip="title:Followup Details;pos:top-left" type="text" #desc placeholder="Description of followup....">
+          </p>
+          <p>
+              <button class="uk-button uk-button-primary uk-width-expand" id="save" type="button" (click)="addnewFollowUp(email.value,desc.value)">Save</button>
+          </p>
+    </div>
+    </div>
+
+    

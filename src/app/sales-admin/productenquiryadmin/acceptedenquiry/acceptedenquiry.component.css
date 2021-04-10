@@ -1,0 +1,57 @@
+#main
+{
+    margin-left: 10px;
+    margin-top:60px;
+    margin-right:170px;
+    margin-bottom:50px;
+}
+.uk-card
+{   
+    background-color:white;
+    border-style:solid;
+    border-width:thin;
+    margin-bottom:10px;
+    height: 115px;
+}
+#carddesc
+{
+    padding-top:15px;
+    padding-left:50px;
+}
+.uk-card-body
+{
+    margin-left: 10px;
+}
+#accepted
+{
+    background-color: red;
+    float:right;
+}
+#filter
+{
+    margin-top:50px;
+}
+.uk-search
+{
+    margin-left:275px;
+    border-style:solid;
+    border-width:thin;
+    border-color:red;
+}
+.uk-button
+{
+    height:42px;
+    background-color:gray;
+}
+#showAll
+{
+    margin-left:125px;
+    background-color:gray;
+    width: 120px;
+}
+#date
+{   
+    padding-top: 15px; 
+    padding-right: 25px;
+    float: right;
+}

@@ -1,0 +1,54 @@
+<div class="uk-margin-small-top uk-margin-large-left" id="top">
+  <label class="uk-text-emphasis uk-text-large" id="headinglabel">View All Customers Order</label>
+    <br>
+  <div id="subtop">
+    <label class="uk-text-emphasis uk-text-medium uk-margin-small-right">Date from </label>
+    <input type="date" id="date" #date1 class="uk-margin-small-right">
+    <label class="uk-text-emphasis uk-text-medium uk-margin-small-right">To </label>
+    <input type="date" id="date" #date2 class="uk-margin-medium-right">
+    <button class="uk-button uk-button-primary" (click)="filterordersbydate(date1.value,date2.value)" uk-tooltip="Filter Orders">Filter<span uk-icon="icon:settings" class="uk-margin-small-left"></span></button>
+    <button class="uk-button uk-button-primary uk-button-small uk-margin-medium-left" (click)="viewallcustomerorders()" uk-tooltip="View All">View All Orders</button>
+  </div>
+</div>
+
+<div *ngIf="orders?.length>0"> 
+<div  id="mainaccordion" *ngFor="let order of orders | paginate: {id:'viewallcustomerorders' , itemsPerPage: 4, currentPage: p}"> 
+
+  <ul uk-accordion="multiple: true">
+    <li>
+        <a class="uk-accordion-title uk-text-large uk-text-emphasis" href="#"><span id="text">{{order.datestring}} | {{order.customer}} <span id="total">Total: {{order.ordertotal}}</span></span></a>
+          
+        <div class="uk-accordion-content">
+            <p>
+              Order Id : {{order._id}}<br>
+               
+              <br>Order Details :
+            </p>
+            
+            <div>
+              <table class="uk-table uk-table-small">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Sub Total</th>
+                    </tr>
+                </thead>
+  
+                <tbody *ngFor="let orderdetail of orderdetails">
+                  <tr *ngIf="orderdetail.orderId==order._id">
+                      <td>{{orderdetail.product}}</td>
+                      <td>{{orderdetail.qty}}</td>
+                      <td>{{orderdetail.subtotal}}</td>
+                  </tr>
+                </tbody>
+  
+                </table>
+            </div>
+        </div>
+    </li>
+  </ul>
+
+  </div>
+  <pagination-controls id='viewallcustomerorders'  (pageChange)="p = $event" autoHide="true"></pagination-controls>
+</div>

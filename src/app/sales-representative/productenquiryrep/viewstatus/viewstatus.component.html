@@ -1,0 +1,111 @@
+
+
+  <ul class="uk-subnav uk-subnav-pill" uk-switcher id="main">
+    <li><a href="#">Rejected</a></li>
+    <li><a href="#">Pending</a></li>
+    <li><a href="#">Accepted</a></li>
+  </ul>
+
+
+  <ul class="uk-switcher uk-margin" id="submain">
+      <li>
+        <div class="uk-child-width-1-1" uk-grid id="main">
+          <div *ngFor="let rejectedenquiry of rejectedenquiries| paginate: {id:'rejectedenquiry' , itemsPerPage: 4, currentPage: p1}">
+            
+          <div class="uk-card uk-card-default">
+              <div class="uk-card-header">
+                  <div uk-grid>
+                      
+                      <div class="uk-width-auto">
+                          <h3 class="uk-card-title">{{rejectedenquiry?.salesrep}}</h3>
+                      </div>
+                      <div class="uk-width-expand">
+                          <label class="uk-label" id="rejected">Rejected</label>
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="uk-card-body uk-padding-remove">
+                <div uk-grid>
+                    <div class="uk-width-auto">
+                        <p id="carddesc" class="uk-text-emphasis uk-text-medium">{{rejectedenquiry?.desc}}</p>
+                    </div>
+                    <div class="uk-width-expand"> 
+                        <p id="date" class="uk-text-emphasis uk-text-medium">{{rejectedenquiry?.datestring}}</p>
+                    </div>  
+                </div>
+              </div>
+          </div>
+        
+        </div>
+        <pagination-controls id='rejectedenquiry'  (pageChange)="p1 = $event" autoHide="true"></pagination-controls>
+        </div>
+    </li>
+      
+    <li>
+      <div class="uk-child-width-1-1" uk-grid id="main">
+        <div *ngFor="let waitingenquiry of waitingenquiries| paginate: {id:'waitingenquiry' , itemsPerPage: 4, currentPage: p2}">
+          
+        <div class="uk-card uk-card-default">
+            <div class="uk-card-header">
+                <div uk-grid>
+
+                    <div class="uk-width-auto">
+                        <h3 class="uk-card-title">{{waitingenquiry?.salesrep}}</h3>
+                    </div>
+                    <div class="uk-width-expand">
+                        <label class="uk-label" id="waiting">Pending</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="uk-card-body  uk-padding-remove">
+              <div uk-grid>
+                  <div class="uk-width-auto">
+                      <p id="carddesc" class="uk-text-emphasis uk-text-medium">{{waitingenquiry?.desc}}</p>
+                  </div>
+                  <div class="uk-width-expand"> 
+                    <p id="date" class="uk-text-emphasis uk-text-medium">{{waitingenquiry?.datestring}}</p>
+                  </div>  
+               </div>
+            </div>
+        </div>
+      </div>
+      <pagination-controls id='waitingenquiry'  (pageChange)="p2 = $event" autoHide="true"></pagination-controls>
+    </div>
+   </li>
+    
+    
+    <li>
+        <div class="uk-child-width-1-1" uk-grid id="main">
+            <div *ngFor="let acceptedenquiry of acceptedenquiries| paginate: {id:'acceptedenquiry' , itemsPerPage: 4, currentPage: p3}">
+              
+            <div class="uk-card uk-card-default">
+                <div class="uk-card-header">
+                    <div uk-grid>
+    
+                        <div class="uk-width-auto">
+                            <h3 class="uk-card-title">{{acceptedenquiry?.salesrep}}</h3>
+                        </div>
+                        <div class="uk-width-expand">
+                            <label class="uk-label" id="accepted">Accepted</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="uk-card-body uk-padding-remove">
+                  <div uk-grid>
+                      <div class="uk-width-auto">
+                          <p id="carddesc" class="uk-text-emphasis uk-text-medium">{{acceptedenquiry?.desc}}</p>
+                      </div>
+                      <div class="uk-width-expand"> 
+                        <p id="date" class="uk-text-emphasis uk-text-medium">{{acceptedenquiry?.datestring}}</p>
+                      </div>  
+                    </div>
+                </div>
+            </div>
+          </div>
+          <pagination-controls id='acceptedenquiry'  (pageChange)="p3 = $event" autoHide="true"></pagination-controls>
+        </div>
+    </li>
+  </ul>

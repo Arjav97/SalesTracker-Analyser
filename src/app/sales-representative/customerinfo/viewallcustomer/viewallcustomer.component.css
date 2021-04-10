@@ -1,0 +1,40 @@
+.uk-button
+{
+    height:42px;
+    background-color:red;
+}
+#top
+{
+    margin-top:150px;
+}
+#main
+{
+    margin-left: 10px;
+    margin-top:100px;
+    margin-right:170px;
+}
+.uk-card
+{   
+    background-color:white;
+    border-style:solid;
+    border-width:thin;
+    margin-bottom: 15px;
+    height: 150px;
+}
+#status
+{
+    float: right;
+}
+#statuslabel
+{
+    float:right;
+    background-color: red;
+}
+#date
+{
+    float:right;
+}
+#cardbody
+{
+    margin-top:20px;
+}

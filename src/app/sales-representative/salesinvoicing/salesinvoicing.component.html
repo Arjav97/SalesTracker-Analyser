@@ -1,0 +1,90 @@
+<nav class="uk-navbar-container" id="navbar" uk-navbar>
+  <div class="uk-navbar-left" id="navitem">
+      <a class="uk-navbar-toggle" href="#canvas" uk-toggle>
+          <span style="color:black" uk-navbar-toggle-icon></span> <span style="color:black" class="uk-margin-small-left">Menu</span>
+      </a>
+  </div>
+  <div class="uk-navbar-right uk-margin-medium-right uk-margin-small-top uk-margin-small-bottom" id="navitem">
+    <button class="uk-button uk-button-primary uk-button-small" (click)="logout()">Log Out</button>
+  </div>
+</nav>
+
+<div id="canvas" uk-offcanvas="mode:push">
+  <div class="uk-offcanvas-bar">
+    <ul class="uk-nav uk-nav-default uk-nav-center-left uk-margin-auto-vertical">
+     <li class="uk-nav-header"><a routerLink="/salesrepdashboard">Sales Representative Dashboard</a></li>
+     <li class="uk-nav-divider"></li> 
+      <li class="uk-nav-header"><a routerLink="/productcatalogue">Product Catalogue</a></li>
+      <li class="uk-nav-divider"></li> 
+      <li class="uk-nav-header"><a routerLink="/customerhome">Customer Info</a></li>
+      <li class="uk-nav-divider"></li>
+      <li class="uk-nav-header"><a routerLink="/productenquiryrephome">Product Enquiry</a></li>
+      <li class="uk-nav-divider"></li> 
+      <li class="uk-nav-header"><a routerLink="/salesinvoicing">Sales Invoicing</a></li>
+      <li class="uk-nav-divider"></li>
+      <li class="uk-nav-header"><a routerLink="/generaterepreport">Generate Report</a></li>
+    </ul>
+    
+      <button class="uk-offcanvas-close" type="button" uk-close></button>
+  </div>
+</div>
+
+<div id="main">
+  <label id="label" class="uk-text-emphasis uk-text-large">Order Details</label><br>
+  <label id="customer" class="uk-text-emphasis uk-text-large">Customer Id</label>
+  <input type="text" id="customertext" class="uk-text" placeholder="Enter Customer Id" #customer uk-tooltip="CustomerId">
+
+  <div id="submain">
+    <table class="uk-table uk-table-hover uk-table-small">
+      
+      <thead>
+        <tr>
+            <th></th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Remove</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+       <tr *ngFor="let order of orders">
+         <td> <input type="checkbox" [(ngModel)]="order.isChecked" (change)="updateCheckbox(order,pro.value,qty.value)"> </td>
+         <td> <select class="uk-select uk-width-auto uk-height-large" #pro [ngModel]="[order?.product]" uk-tooltip="Choose Product">
+              <option disabled selected>Select your option </option>
+              <option *ngFor="let product of products">{{product.name}}</option>
+              </select>
+              </td>
+         <td>  <input id="price" type="text" class="uk-text" [ngModel]="[order?.price]" disabled="true"></td>
+         <td>  <input id="qty" placeholder="Enter quantity" type="text" class="uk-text" #qty uk-tooltip="Quantity" [ngModel]="[order?.qty]"></td>
+         <td>  <input id="total" type="text" class="uk-text" disabled="true" [ngModel]="[order?.total]"></td>
+         <td> <button id="delete" class="uk-button uk-button-primary" (click)="deleteOrder(order)" uk-tooltip="Remove">Delete</button> </td>
+       </tr> 
+      </tbody>
+    
+    </table>
+  </div>
+    
+  <div class="uk-margin-medium-bottom">
+    <button id="nettotal" class="uk-button-primary uk-button" uk-tooltip="Order Total" (click)="NetTotal()">Net Total</button>
+    <input id="nettotaltext" type="text" class="uk-text" placeholder="Net total" #nettotaltext disabled="true" [ngModel]="nettotal">
+  </div>
+
+  <div>
+    <button id="submit" class="uk-button-primary uk-button" uk-tooltip="Order Submit" (click)="Submit(customer.value)">Submit</button>
+  </div>
+      
+  <a id="iconbutton" class="uk-icon-button uk-margin-small-right" uk-icon="icon:plus-circle;ratio:2" (click)="addOrder()" uk-tooltip="Add Order"></a> 
+
+</div>
+
+<div id="notregisteredcustomer" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+      <button class="uk-modal-close-default" type="button" uk-close></button>
+      <h2 class="uk-modal-title uk-text-center">Not a registered customer</h2>
+      <p>
+        <a  [routerLink]="['/customerhome/addcustomer',{email:customer.value}]"><button id="navigate" class="uk-button uk-width-expand uk-button-primary">Navigate to Customer Registration</button></a>
+      </p>
+  </div>
+</div>

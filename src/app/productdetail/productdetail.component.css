@@ -1,0 +1,33 @@
+#navbar
+{
+    background-color: #f0f0d0;
+    height:50px;
+}
+#navitem1
+{
+    margin-top: -15px;
+}
+#navitem2
+{
+    color: black;
+}
+.uk-accordion
+{
+    margin-top:75px;
+    margin-left:400px;
+    margin-right:400px;
+    margin-bottom: 200px;
+}
+.uk-accordion-title
+{
+    background-color:whitesmoke;
+}
+#text
+{
+    color:maroon;
+}
+#pro
+{   
+    color:black;
+    font-size:20px;
+}

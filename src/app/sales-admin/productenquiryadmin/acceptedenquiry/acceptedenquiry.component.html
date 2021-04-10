@@ -1,0 +1,44 @@
+<div class="uk-margin" id="filter">
+   
+    <button class="uk-button uk-button-primary uk-button-small uk-text-medium" id="showAll" uk-tooltip="View All Accepted Enquiries" (click)="getAcceptedEnquiries()">Show All</button>
+    <form class="uk-search uk-search-default uk-width-1-5" id="search">
+        <input class="uk-search-input" #search type="search" placeholder="Search ...">
+    </form>
+    
+    <button class="uk-button uk-button-primary uk-button-small" uk-tooltip="AcceptedEnquiries By Rep" (click)="searchAcceptedEnquiryByRep(search.value);search.value='' "><span uk-search-icon></span></button>
+  
+</div>
+
+<div class="uk-child-width-1-1" uk-grid id="main">
+  <div *ngFor="let enquiry of enquiries | paginate: { id:'viewacceptedenquiry' , itemsPerPage: 5, currentPage: p}">
+    
+  <div class="uk-card uk-card-default">
+      <div class="uk-card-header">
+          <div uk-grid>
+              
+              <div class="uk-width-auto">
+                  <h3 class="uk-card-title">{{enquiry?.salesrep}}</h3>
+              </div>
+              <div class="uk-width-expand">
+                <label class="uk-label" id="accepted">Accepted</label>
+            </div>
+          </div>
+      </div>
+      
+      <div class="uk-card-body uk-padding-remove">
+        <div uk-grid>
+          
+            <div class="uk-width-auto" id="carddesc">
+                <p class="uk-text-emphasis uk-text-medium">{{enquiry?.desc}}</p>
+            </div>
+            <div class="uk-width-expand"> 
+                <p id="date" class="uk-text-emphasis uk-text-medium">{{enquiry?.datestring}}</p>
+            </div>
+        </div>
+        
+        </div>
+  </div>
+
+</div>
+<pagination-controls id='viewacceptedenquiry' (pageChange)="p = $event" autoHide="true"></pagination-controls>
+</div>

@@ -1,0 +1,57 @@
+<form class="uk-form-horizontal">
+<div id="main">
+  
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-emphasis uk-text-large">Product Name</label>
+      <div class="uk-form-controls">
+          <input class="uk-input uk-form-width-medium" #name id="name" type="text" placeholder="Enter Product Name">
+      </div>
+  </div>
+
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-emphasis uk-text-large">Specifications</label>
+      <div class="uk-form-controls">
+         <textarea class="uk-textarea uk-form-width-large" #spec id="spec" rows="2" placeholder="Product Description..."></textarea>
+      </div>
+  </div>
+
+  <div class="uk-margin-small">
+    <label class="uk-form-label uk-text-emphasis uk-text-large">Category</label>
+    <div class="uk-form-controls uk-width-1-4">
+        <select class="uk-select" #category id="category">
+            <option disabled selected>Select Category</option>
+            <option>Fashion</option>
+            <option>Garments</option>
+            <option>Convenience</option>
+            <option>Sports</option>
+        </select>
+    </div>
+</div>
+  
+  <div class="uk-margin-small">
+    <label class="uk-form-label uk-text-emphasis uk-text-large">Quantity</label>
+    <div class="uk-form-controls">
+        <input class="uk-input uk-form-width-small" #qty id="qty" type="text" placeholder="Enter Quantity">
+    </div>
+  </div>
+  
+  <div class="uk-margin-small">
+    <label class="uk-form-label uk-text-emphasis uk-text-large">Price</label>
+    <div class="uk-form-controls">
+      <input class="uk-input uk-form-width-small" #price id="price" type="text" placeholder="Enter Price">
+    </div>
+  </div>
+
+  <div class="uk-margin-small">
+    <label class="uk-form-label uk-text-emphasis uk-text-large">Commission</label>
+    <div class="uk-form-controls">
+      <input class="uk-input uk-width-auto" #comm id="comm" type="text" placeholder="Enter Commission">
+    </div>
+  </div>
+
+  <div class="uk-child-width-1-3 uk-margin-small">
+    <button class="uk-margin-medium-top uk-margin-medium-left uk-button uk-button-primary uk-button-large" uk-tooltip="title:ProductEntry;pos:top-right" type="button" (click)="addProduct(name.value,spec.value,category.value,qty.value,price.value,comm.value)">Add Product</button>
+  </div>
+
+</div>
+</form>

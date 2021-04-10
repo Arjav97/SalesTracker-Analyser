@@ -1,0 +1,21 @@
+<form class="uk-form-horizontal">
+  <div id="main">
+    
+    <div class="uk-margin-small-top uk-margin-large-left uk-text-large uk-text-emphasis">
+        <legend>Product Enquiry</legend>
+    </div>
+    
+    <div class="uk-margin-medium">
+        <label class="uk-form-label uk-text-emphasis uk-text-large">Description</label>
+        <div class="uk-form-controls">
+           <textarea class="uk-textarea uk-form-width-large uk-text-large" #desc id="desc" rows="5" placeholder="Description......"></textarea>
+        </div>
+    </div>
+
+    <div class="uk-child-width-1-2 uk-margin-small">
+      <button class="uk-margin-medium-top uk-margin-medium-left uk-button uk-button-primary uk-button-large" uk-tooltip="title:Send Enquiry;pos:top-right" type="button" (click)="AddEnquiry(desc.value);desc.value='' ">Add Enquiry</button>
+    </div>
+  
+  
+  </div>
+</form>  

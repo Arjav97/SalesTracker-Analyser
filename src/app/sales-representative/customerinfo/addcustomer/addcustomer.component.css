@@ -1,0 +1,11 @@
+#main
+{
+    margin-left: 1px;
+}
+#name,#desc,#email
+{   
+    border-style:solid;
+    border-width:thin;
+    border-color:#f44242;
+    margin-top:10px;
+}

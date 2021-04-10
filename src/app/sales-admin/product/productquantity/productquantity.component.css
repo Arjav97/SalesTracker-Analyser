@@ -1,0 +1,12 @@
+#main
+{
+    margin-left: 375px;
+    margin-top:75px;
+}
+#id,#qty
+{   
+    border-style:solid;
+    border-width:thin;
+    border-color:#f44242;
+    margin-top:10px;
+}

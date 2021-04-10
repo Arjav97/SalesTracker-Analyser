@@ -1,0 +1,109 @@
+<nav class="uk-navbar-container" id="navbar" uk-navbar>
+  <div class="uk-navbar-left" id="navitem1">
+      <a class="uk-navbar-toggle" href="#canvas" uk-toggle>
+          <span style="color:black" uk-navbar-toggle-icon></span> <span style="color:black" class="uk-margin-small-left">Menu</span>
+      </a>
+  </div>
+  <div class="uk-navbar-center" id="navitem2">
+    <label class="uk-margin-large-left uk-text-large uk-text-emphasis">Product Details</label>
+  </div>
+  <div class="uk-navbar-right uk-margin-medium-right uk-margin-small-top uk-margin-small-bottom" id="navitem">
+    <button class="uk-button uk-button-primary uk-button-small" (click)="logout()">Log Out</button>
+</div>
+</nav>
+
+<div id="canvas" uk-offcanvas="mode:push" *ngIf="salesadmin">
+  <div class="uk-offcanvas-bar">
+    <ul class="uk-nav uk-nav-default uk-nav-center-left uk-margin-auto-vertical">
+     <li class="uk-nav-header"><a routerLink="/salesdashboard">Sales Dashboard</a></li>
+     <li class="uk-nav-divider"></li> 
+     <li class="uk-nav-header"><a routerLink="/producthome">Product Related Operations</a></li>
+      
+      <li class="uk-nav-divider"></li>
+      
+      <li class="uk-nav-header"><a routerLink="/productcatalogue">Product Catalogue</a></li>
+      <li class="uk-nav-divider"></li> 
+    <li class="uk-nav-header"><a routerLink="/productenquiryadminhome">Product Enquiry</a></li>
+    <li class="uk-nav-divider"></li>
+      <li class="uk-nav-header"><a routerLink="/viewallsalesorder">View All Sales Order</a></li>
+      <li class="uk-nav-divider"></li>
+      <li class="uk-nav-header"><a routerLink="/generateadminreport">Generate Report</a></li>
+    </ul>
+    
+      <button class="uk-offcanvas-close" type="button" uk-close></button>
+  </div>
+</div>
+
+<div id="canvas" uk-offcanvas="mode:push" *ngIf="salesrep">
+  <div class="uk-offcanvas-bar">
+    <ul class="uk-nav uk-nav-default uk-nav-center-left uk-margin-auto-vertical">
+     <li class="uk-nav-header"><a routerLink="/salesrepdashboard">Sales Representative Dashboard</a></li>
+     <li class="uk-nav-divider"></li> 
+      <li class="uk-nav-header"><a routerLink="/productcatalogue">Product Catalogue</a></li>
+      <li class="uk-nav-divider"></li> 
+      <li class="uk-nav-header"><a routerLink="/customerhome">Customer Info</a></li>
+      <li class="uk-nav-divider"></li> 
+      <li class="uk-nav-header"><a routerLink="/productenquiryhome">Product Enquiry</a></li>
+      <li class="uk-nav-divider"></li> 
+      <li class="uk-nav-header"><a routerLink="/salesinvoicing">Sales Invoicing</a></li>
+      <li class="uk-nav-divider"></li>
+      <li class="uk-nav-header"><a routerLink="/generaterepreport">Generate Report</a></li>
+    </ul>
+    
+      <button class="uk-offcanvas-close" type="button" uk-close></button>
+  </div>
+</div>
+
+
+<ul uk-accordion="multiple: true">
+  <li class="uk-open">
+      <a class="uk-accordion-title uk-text-large uk-text-emphasis" href="#"><span id="text">Name</span></a>
+      <div class="uk-accordion-content">
+          <p><span id="pro">{{product?.name}}</span></p>
+      </div>
+  </li>
+
+  <li>
+    <a class="uk-accordion-title uk-text-large uk-text-emphasis" href="#"><span id="text">Id</span></a>
+    <div class="uk-accordion-content">
+        <p><span id="pro">{{product?._id}}</span></p>
+    </div>
+  </li>
+
+  <li>
+  <a class="uk-accordion-title uk-text-large uk-text-emphasis" href="#"><span id="text">Specifications</span></a>
+  <div class="uk-accordion-content">
+      <p><span id="pro">{{product?.spec}}</span></p>
+  </div>
+</li>
+
+<li>
+  <a class="uk-accordion-title uk-text-large uk-text-emphasis" href="#"><span id="text">Category</span></a>
+  <div class="uk-accordion-content">
+      <p><span id="pro">{{product?.category}}</span></p>
+  </div>
+</li>
+
+<li>
+  <a class="uk-accordion-title uk-text-large uk-text-emphasis" href="#"><span id="text">Quantity</span></a>
+  <div class="uk-accordion-content">
+      <p><span id="pro">{{product?.qty}}</span></p>
+  </div>
+</li>
+
+<li>
+  <a class="uk-accordion-title uk-text-large uk-text-emphasis" href="#"><span id="text">Price</span></a>
+  <div class="uk-accordion-content">
+      <p><span id="pro">{{product?.price}}</span></p>
+  </div>
+</li>
+
+<li>
+  <a class="uk-accordion-title uk-text-large uk-text-emphasis" href="#"><span id="text">Commission</span></a>
+  <div class="uk-accordion-content">
+      <p><span id="pro">{{product?.comm}}</span></p>
+  </div>
+</li>
+
+</ul>
+

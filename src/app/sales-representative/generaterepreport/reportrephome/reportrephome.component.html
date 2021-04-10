@@ -1,0 +1,49 @@
+<nav class="uk-navbar-container" id="navbar" uk-navbar>
+    <div class="uk-navbar-left" id="navitem">
+        <a class="uk-navbar-toggle" href="#canvas" uk-toggle>
+            <span style="color:black" uk-navbar-toggle-icon></span> <span style="color:black" class="uk-margin-small-left">Menu</span>
+        </a>
+    </div>
+    <div class="uk-navbar-right uk-margin-medium-right uk-margin-small-top uk-margin-medium-bottom" id="navitem">
+      <button id="logout" class="uk-button uk-button-primary uk-button-small" (click)="logout()">Log Out</button>
+  </div>
+  </nav>
+
+
+<div id="canvas" uk-offcanvas="mode:push">
+    <div class="uk-offcanvas-bar">
+      <ul class="uk-nav uk-nav-default uk-nav-center-left uk-margin-auto-vertical">
+       <li class="uk-nav-header"><a routerLink="/salesrepdashboard">Sales Representative Dashboard</a></li>
+       <li class="uk-nav-divider"></li> 
+        <li class="uk-nav-header"><a routerLink="/productcatalogue">Product Catalogue</a></li>
+        <li class="uk-nav-divider"></li> 
+        <li class="uk-nav-header"><a routerLink="/customerhome">Customer Info</a></li>
+        <li class="uk-nav-divider"></li>
+        <li class="uk-nav-header"><a routerLink="/productenquiryrephome">Product Enquiry</a></li>
+        <li class="uk-nav-divider"></li> 
+        <li class="uk-nav-header"><a routerLink="/salesinvoicing">Sales Invoicing</a></li>
+        <li class="uk-nav-divider"></li>
+      <li class="uk-nav-header"><a routerLink="/generaterepreport">Generate Report</a></li>
+        
+      </ul>
+      
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+    </div>
+  </div>
+  
+
+<div class="uk-margin-large-left uk-grid-divider" uk-grid>
+    <div class="uk-width-1-5  uk-margin-large-top" style="background-color:#F5F5F5">
+      <ul class="uk-tab-left uk-text-center" uk-tab>
+        <li class="uk-margin-medium-bottom"><a routerLink="./productremainingrep">Product Remaining</a></li>
+        <li class="uk-margin-medium-bottom"><a routerLink="./productconsumptionrep">Product Consumption</a></li>
+        <li class="uk-margin-medium-bottom"><a routerLink="./salesrepcustomer">All Customer Sales</a></li>
+        <li class="uk-margin-medium-bottom"><a routerLink="./specificcustomer">Specific Customer</a></li>
+      </ul>
+    </div>
+  
+    <div class="uk-width-expand">
+        <router-outlet></router-outlet>
+    </div>
+  </div>
+  

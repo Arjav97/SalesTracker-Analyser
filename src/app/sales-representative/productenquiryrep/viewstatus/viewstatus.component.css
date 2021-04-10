@@ -1,0 +1,30 @@
+#main
+{
+    margin-top: 45px;
+    margin-left:100px;
+}
+.uk-card
+{
+    background-color:white;
+    border-style:solid;
+    border-width:thin;
+    margin-bottom: 5px;
+    margin-right:125px;
+    height:130px;
+}
+#carddesc
+{
+    margin-left: 10px;
+    padding-top: 15px;
+}
+#rejected,#waiting,#accepted
+{
+    background-color: red;
+    float:right;
+}
+#date
+{   
+    padding-top: 15px; 
+    padding-right: 25px;
+    float: right;
+}

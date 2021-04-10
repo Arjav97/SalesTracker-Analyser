@@ -1,0 +1,15 @@
+#name,#email,#designation,#password
+{   
+    border-style:solid;
+    border-width:thin;
+    border-color:#ff5328;
+}
+#heading
+{
+    background-color:lightgray;
+    height: 30px;
+}
+#main
+{
+    margin-left:50px;
+}
